@@ -1,9 +1,9 @@
-arr = []
+li = []
 
 f = open("day_2_data.txt", "r")
 
 for line in f:
-  arr.append(line.rstrip())
+  li.append(line.rstrip())
 
 
 def is_valid(line):
@@ -21,12 +21,12 @@ def is_valid_2(line):
   pos_2 = int(pos_2)
   return (pw[int(pos_1)-1] == letter) ^ (pw[int(pos_2)-1] == letter)
 
-def valid_count(arr, func):
+def valid_count(li, func):
   count = 0
-  for line in arr:
+  for line in li:
     if(func(line)):
       count+=1
   return print(count)
 
-valid_count(arr, is_valid)
-valid_count(arr, is_valid_2)
+valid_count(li, is_valid)
+valid_count(li, is_valid_2)
