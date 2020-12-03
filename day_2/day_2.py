@@ -13,13 +13,6 @@ def is_valid(line):
 
   return int(minimum) <= pw.count(letter) <= int(maximum)
 
-def valid_count(arr):
-  count = 0
-  for line in arr:
-    if(is_valid(line)):
-      count+=1
-  return print(count)
-
 def is_valid_2(line):
   params, letter, pw = line.split()
   letter = letter.replace(":", "")
@@ -28,12 +21,12 @@ def is_valid_2(line):
   pos_2 = int(pos_2)
   return (pw[int(pos_1)-1] == letter) ^ (pw[int(pos_2)-1] == letter)
 
-def valid_count_2(arr):
+def valid_count(arr, func):
   count = 0
   for line in arr:
-    if(is_valid_2(line)):
+    if(func(line)):
       count+=1
   return print(count)
 
-valid_count(arr)
-valid_count_2(arr)
+valid_count(arr, is_valid)
+valid_count(arr, is_valid_2)
